@@ -9,6 +9,8 @@ ARP Attack Wireshark 화면
 ARP Victim ARP Table 화면
 ![image](https://user-images.githubusercontent.com/37138188/127364058-142d68c5-5e1a-4d2c-8bc6-34df1b811842.png)
 
+## 1.254인 GateWay의 MAC 어드레스가 공격자의 주소로 바뀐 것을 확인할 수 있었음.
+
 ---
 
 ## pcap-test 코드리뷰
