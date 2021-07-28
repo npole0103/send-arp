@@ -114,9 +114,9 @@ ARP Reply : MAC 어드레스를 물어본 상대방에게 답을 보내는 것�
 - ether_dmac : target MAC
 - ether_smac : My Mac
 - arp_smac : My Mac
-- arp_sip : Gate Way IP <<인자로 입력 받음.
-- arp_tmac : target Mac
-- arp_tip : target IP << 인자로 입력 받음.
+- arp_sip : Gate Way IP(인자 target IP) <<인자로 입력 받음.
+- arp_tmac : Victim Mac
+- arp_tip : Victim IP(인자 Sender IP) << 인자로 입력 받음.
   
 결론 : target MAC과 My MAC만 알면 과제 끝이다.
 
