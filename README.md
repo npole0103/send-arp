@@ -102,3 +102,33 @@ ARP Reply : MAC 어드레스를 물어본 상대방에게 답을 보내는 것�
 **브로드캐스트란?** : 브로드캐스트 방식은 로컬 네트워크에 연결되어 있는 모든 시스템에게 프레임을 보내는 방식을 말한다. 브로드캐스트 방식은 통신하고자 하는 시스템의 MAC 주소를 알지 못하는 경우, 네트워크에 있는 모든 시스템에게 알리는 경우, 라우터끼리 정보를 교환하거나 새로운 라우터를 찾는 경우 등에 이용이 된다.
 
 [브로드캐스트/유니스캐스트/멀티캐스트](https://m.blog.naver.com/wnrjsxo/221250742423)
+  
+---
+  
+## 과제 플로우 설계
+  
+인자 : 실행파일 + interface + src_ip + target_ip + [src2_ip + target2_ip ... ]
+### main 함수에서 argc 기준으로 2 나눠서 for문 돌려서 실행
+
+우리가 알아야할 정보
+- ether_dmac : target MAC
+- ether_smac : My Mac
+- arp_smac : My Mac
+- arp_sip : Gate Way IP <<인자로 입력 받음.
+- arp_tmac : target Mac
+- arp_tip : target IP << 인자로 입력 받음.
+  
+결론 : target MAC과 My MAC만 알면 과제 끝이다.
+
+1. 패킷 정보 받아서 pacp_sendpacket 해주는 함수 정의
+2. victim_mac 어드레스 get 해주는 함수 정의
+3. victim_mac을 얻기 위해서는 my_ip와 my_mac이 필요할듯? << 이것도 함수 정의
+  
+"pcap_open_live(dev, 0, 0, 0, errbuf)" 이렇게 줘도 되지만, 패킷을 수신(pcap_next_ex)을 하려면 숫자 인자를 0으로 채워서는 안됨.
+과제를 수행할 때 "pcap_open_live(dev, BUFSIZ, 1, 1, errbuf)"로 수정해서 작업을 할 것.
+**BUFSIZ는 stdio.h에 정의가 되어있다. BUFSIZ는 안씨 표준으로 최소 256바이트**
+  
+---
+   
+  
+  
