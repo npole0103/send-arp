@@ -3,6 +3,14 @@ send-arp HW
 
 ---
 
+ARP Attack Wireshark 화면
+![image](https://user-images.githubusercontent.com/37138188/127363884-4b070d2f-3126-4d88-8f53-7fb0d17ba6d8.png)
+
+ARP Victim ARP Table 화면
+![image](https://user-images.githubusercontent.com/37138188/127364058-142d68c5-5e1a-4d2c-8bc6-34df1b811842.png)
+
+---
+
 ## pcap-test 코드리뷰
 
 패킷 받을 때 OFFSET으로 하지말고, 구조체를 sizeof하여 더해줘야한다.
@@ -54,6 +62,7 @@ Wireshark를 실행하여 'ping 8.8.8.8' 명령어에 의한 ICMP packet(icmp.pc
 상대방, 나, 게이트웨이 모두 Arp Table을 가지고 있다.
   
 **우리의 목표는 마치 내가 Gateway인 것처럼 거짓된 ARP Reply를 날리는 것**
+- 그렇게 해서 Victim은 Gateway에 보내야할 정보를 Attacker에게 보내게 된다.
  
 FF:FF:FF:FF:FF:FF 같은 네트워크 대역 모두에게 전달되는 브로드케스트임. Target IP를 갖고 있는 놈만 응답함.
 Target MAC은 모르기 때문에, 00:00:00:00:00:00으로 실어서 Request 날림.
@@ -66,9 +75,9 @@ main.cpp 코드 내부에 있는 값들을 적당히 수정하여 상대방 컴�
 
 이 경우(attack이 성공한 경우) 상대방 컴퓨터에서 ARP cache table이 변경되고, 외부 ping을 때렸을 때 그 ping packet이 자신(attacker)에게 오게 되며, 상대방 컴퓨터에서는 정상적인 IP 통신을 할 수 없게 된다(인터넷이 막히는 것처럼 된다).
   
-**Src MAC 어드레스는 Attack의 MAC**
+### Src MAC 어드레스는 Attack의 MAC
 
-**Src IP 어드레스는 Gateway의 IP**
+### Src IP 어드레스는 Gateway의 IP
 
 ---
 
