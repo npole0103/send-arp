@@ -50,6 +50,9 @@ Wireshark를 실행하여 'ping 8.8.8.8' 명령어에 의한 ICMP packet(icmp.pc
 
 ### ARP Packet 실습
 'sudo arp -d <gateway>'라는 명령어로 자신의 ARP cache table을 삭제하게 되면 외부와의 통신을 위해서 자신의 호스트와 gatway 사이에 ARP packet(ARP request, ARP reply)가 발생한다. 이 상태에서 잡힌 ARP packet(arp.pcap으로 저장)을 보면서 PPT 파일의 ARP 란에 mac과 ip 정보를 입력한다.
+  
+FF:FF:FF:FF:FF:FF 같은 네트워크 대역 모두에게 전달되는 브로드케스트임. Target IP를 갖고 있는 놈만 응답함.
+Target MAC은 모르기 때문에, 00:00:00:00:00:00으로 실어서 Request 날림.
 
 ### 프로그램을 이용하여 상대방 컴퓨터의 ARP cache table 감염(infection)
 
