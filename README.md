@@ -111,7 +111,7 @@ ARP Reply : MAC 어드레스를 물어본 상대방에게 답을 보내는 것�
 ### main 함수에서 argc 기준으로 2 나눠서 for문 돌려서 실행
 
 우리가 알아야할 정보
-- ether_dmac : target MAC
+- ether_dmac : sender MAC
 - ether_smac : My Mac
 - arp_smac : My Mac
 - arp_sip : Gate Way IP(인자 target IP) <<인자로 입력 받음.
